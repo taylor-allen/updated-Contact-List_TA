@@ -1,16 +1,16 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { ContactList } from "../components/ContactList.jsx";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
-
-  const {store, dispatch} =useGlobalReducer()
+	const [isHello, setIsHello] = useState(true)
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
+			<h1>{isHello ? "Hello" : "Goodbye"} world!</h1>
+			<button onClick={() => setIsHello(!isHello)} className="btn btn-primary">
+				Say { isHello ? "Goodbye" : "Hello"} Instead
+			</button>
+			<ContactList/>
 		</div>
 	);
 }; 
