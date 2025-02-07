@@ -1,16 +1,15 @@
-import { ContactList } from "../components/ContactList.jsx";
-import { useEffect, useState } from "react";
+
+import { useEffect } from "react";
+import useGlobalReducer from "../hooks/useGlobalReducer";
+import { ContactCard } from "../components/ContactCard";
 
 export const Home = () => {
-	const [isHello, setIsHello] = useState(true)
+	  const { store } = useGlobalReducer();
+
 
 	return (
-		<div className="text-center mt-5">
-			<h1>{isHello ? "Hello" : "Goodbye"} world!</h1>
-			<button onClick={() => setIsHello(!isHello)} className="btn btn-primary">
-				Say { isHello ? "Goodbye" : "Hello"} Instead
-			</button>
-			<ContactList/>
+		<div className="container d-flex flex-column justify-center">
+			{store.contacts?.map(contact => <ContactCard contact={contact} key={contact.id}/>)}
 		</div>
 	);
 }; 
