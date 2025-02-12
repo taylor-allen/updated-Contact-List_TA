@@ -10,7 +10,7 @@ export const ContactPage = () => {
 
   useEffect(() => {
     setContact(store.contacts.find((contact) => contact.id == id ))
-    // if (!book && store.books) {
+    // if (!contacts && store.contacts) {
     //   nav("/")
     // }
   }, [store])

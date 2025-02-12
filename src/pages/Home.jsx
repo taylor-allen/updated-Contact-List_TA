@@ -10,6 +10,8 @@ export const Home = () => {
 	return (
 		<div className="container d-flex flex-column justify-center">
 			{store.contacts?.map(contact => <ContactCard contact={contact} key={contact.id}/>)}
+
+			
 		</div>
 	);
 }; 
