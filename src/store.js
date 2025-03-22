@@ -34,6 +34,11 @@ export default function storeReducer(store = initialStore(), action = {}) {
       contacts: store.contacts.filter((contact) => contact.id !== action.id),
     };
   }
+  if (action.type == "set_contacts") {
+    return {
+      ...store,
+      contacts: action.payload
+    };
+  }
 
-  return store; // Default return
 }

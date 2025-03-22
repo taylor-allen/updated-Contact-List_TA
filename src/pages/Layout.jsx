@@ -5,16 +5,16 @@ import { Footer } from "../components/Footer";
 import { useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
-// Base component that maintains the navbar and footer throughout the page and the scroll-to-top functionality.
 export const Layout = () => {
   const { dispatch } = useGlobalReducer();
 
   const getData = () => {
-    console.log("Fetching contacts..."); // Debugging fetch call
+    console.log("Fetching contacts..."); 
 
     fetch("https://playground.4geeks.com/contact/agendas/taylor/contacts")
       .then((resp) => {
         console.log("API Response Status:", resp.status);
+        
         if (!resp.ok) {
           console.warn("Primary fetch failed. Attempting to create agenda...");
 
@@ -41,10 +41,6 @@ export const Layout = () => {
         console.log("Fetched contacts:", data); // Debugging fetched data
 
         if (data && data.contacts) {
-          // dispatch({
-          //   type: "load_contacts",
-          //   contacts: data.contacts,
-          // });
           dispatch({
             type: "load_contacts",
             contacts: data.contacts,
@@ -57,7 +53,6 @@ export const Layout = () => {
       .catch((error) => console.error("Error fetching contacts:", error));
   };
 
-  // Fetch contacts when the component mounts
   useEffect(() => {
     getData();
   }, []);

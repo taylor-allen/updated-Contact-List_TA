@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { handleDeleteContact } from "./DeleteContact";
 
 export const ContactCard = ({ contact }) => {
   const { store, dispatch } = useGlobalReducer(); // Get store & dispatch from reducer
@@ -34,8 +35,7 @@ export const ContactCard = ({ contact }) => {
           )}
           <button
             className="btn btn-danger icon-button ms-3 mt-2"
-            onClick={() => dispatch({ type: "delete_contact", id: contact.id })}
-          >
+            onClick={()=> handleDeleteContact(contact.id,store,dispatch)}>
             <i className="fas fa-trash-alt" />
           </button>
         </div>
