@@ -1,6 +1,6 @@
 export const initialStore = () => {
   return {
-    contacts: [], // Always ensure it's an array
+    contacts: [], 
   };
 };
 
@@ -8,7 +8,7 @@ export default function storeReducer(store = initialStore(), action = {}) {
   if (action.type === "load_contacts") {
     return {
       ...store,
-      contacts: action.contacts || [], // Ensure contacts is always an array
+      contacts: action.contacts || [],
     };
   }
 
@@ -34,6 +34,7 @@ export default function storeReducer(store = initialStore(), action = {}) {
       contacts: store.contacts.filter((contact) => contact.id !== action.id),
     };
   }
+
   if (action.type == "set_contacts") {
     return {
       ...store,

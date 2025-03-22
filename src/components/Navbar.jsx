@@ -11,9 +11,9 @@ export const Navbar = () => {
           <img
             src="https://banner2.cleanpng.com/20180623/rvz/kisspng-computer-icons-telephone-call-email-life-sciences-5b2e86c966af22.8580213515297758174206.jpg"
             alt="Logo"
-            width="45"
-            height="24"
-            className="d-inline-block align-text-top"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top me-3"
           />
           Contact Pro
         </a>
